@@ -5,14 +5,17 @@ import pyautogui
 mouse_ = mouse.Controller()
 button = mouse.Button
 
+
+# Click detection function
 def on_click(x, y, button, pressed):
     btn = button.name
 
+    # Left Click detection, You can also change it to Right if you want to get the mouse position on Right Click
     if btn == 'left':
         if pressed:
-            # mouse_.click(button.left)
-            # print('works')
             try:
+                # Method to get the Current Mouse Cursor Postion
+                
                 x, y = pyautogui.position()
                 positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
                 print(positionStr)
@@ -26,18 +29,5 @@ with mouse.Listener(
 ) as listener:
     listener.join()
 
-
-# Second Code starts from here
-
-
-
-#try:
-#    while True:
-#        x, y = pyautogui.position()
-#        positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-#        print(positionStr)
-
-#except KeyboardInterrupt:
-#    print('\nDone')
 
 
